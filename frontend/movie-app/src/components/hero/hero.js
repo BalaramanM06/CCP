@@ -6,7 +6,13 @@ import { Paper } from '@mui/material';
 
 const hero = () => {
   return (
-    <div>hero</div>
+    <div>
+        <Carousel>
+            movies.map({movie} =>{
+
+            })
+            </Carousel>
+    </div>
   )
 }
 
