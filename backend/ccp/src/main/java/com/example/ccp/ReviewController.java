@@ -8,10 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-@RestController
+@RestController 
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
     
@@ -19,7 +21,7 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Map<String,String> payload){
            return new ResponseEntity<>(reviewService.creatReview(payload.get("reviewBody"),payload.get("imdbId")),HttpStatus.CREATED);
     }
